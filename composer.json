@@ -1,0 +1,14 @@
+{
+    "name": "draperstudio/laravel-commentable",
+    "description": "Commentable Polymorphic Eloquent Models for for Laravel 5",
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/database": "~5.0|~5.1",
+        "baum/baum": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "DraperStudio\\Commentable\\": "src/"
+        }
+    }
+}
