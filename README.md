@@ -29,6 +29,22 @@ php artisan vendor:publish && php artisan migrate
 
 -----
 
+### Setup a Model
+```php
+<?php
+
+namespace App;
+
+use DraperStudio\Commentable\Traits\Commentable;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use Commentable;
+}
+
+```
+
 ### Create a comment
 ```php
 $user = User::first();
