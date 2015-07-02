@@ -2,8 +2,8 @@
 
 namespace DraperStudio\Commentable\Models;
 
-use Baum\Node;
 use Illuminate\Database\Eloquent\Model;
+use Kalnoy\Nestedset\Node;
 
 class Comment extends Node
 {

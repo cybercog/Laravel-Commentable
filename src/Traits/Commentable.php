@@ -31,7 +31,7 @@ trait Commentable
         $comment = (new Comment())->createComment($this, $data, $creator);
 
         if (!empty($parent)) {
-            $comment->makeChildOf($parent);
+            $comment->appendTo($parent)->save();
         }
 
         return $comment;

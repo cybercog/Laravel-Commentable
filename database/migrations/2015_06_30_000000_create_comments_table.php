@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Kalnoy\Nestedset\NestedSet;
 
 class CreateCommentsTable extends Migration
 {
@@ -14,18 +15,10 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->string('title')->nullable();
             $table->text('body');
-            $table->integer('parent_id')->nullable();
-            $table->integer('lft')->nullable();
-            $table->integer('rgt')->nullable();
-            $table->integer('depth')->nullable();
             $table->morphs('commentable');
             $table->morphs('creator');
+            NestedSet::columns($table);
             $table->timestamps();
-
-            $table->index([
-                'commentable_id', 'commentable_type',
-                'creator_id', 'creator_type',
-            ]);
         });
     }
 
@@ -35,5 +28,6 @@ class CreateCommentsTable extends Migration
     public function down()
     {
         Schema::drop('comments');
+        NestedSet::dropColumns($table);
     }
 }
