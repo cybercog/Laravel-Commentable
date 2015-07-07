@@ -5,12 +5,13 @@ namespace DraperStudio\Commentable\Traits;
 use DraperStudio\Commentable\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
 
-trait Commentable
+/**
+ * Class HasComment.
+ */
+trait HasComment
 {
     /**
-     * This model has many comments.
-     *
-     * @return Comment
+     * @return mixed
      */
     public function comments()
     {
@@ -18,13 +19,11 @@ trait Commentable
     }
 
     /**
-     * Create a new comment.
-     *
-     * @param array      $data
+     * @param $data
      * @param Model      $creator
      * @param Model|null $parent
      *
-     * @return Comment
+     * @return static
      */
     public function comment($data, Model $creator, Model $parent = null)
     {
@@ -38,9 +37,7 @@ trait Commentable
     }
 
     /**
-     * Number of comments an entity has.
-     *
-     * @return string
+     * @return mixed
      */
     public function getCommentCount()
     {

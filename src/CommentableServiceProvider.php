@@ -5,10 +5,13 @@ namespace DraperStudio\Commentable;
 use Illuminate\Support\ServiceProvider;
 use Baum\Providers\BaumServiceProvider;
 
+/**
+ * Class CommentableServiceProvider.
+ */
 class CommentableServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Bootstrap any application services.
      */
     public function boot()
     {
@@ -18,7 +21,7 @@ class CommentableServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the application services.
+     * Register any application services.
      */
     public function register()
     {

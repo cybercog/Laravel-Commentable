@@ -5,18 +5,17 @@ namespace DraperStudio\Commentable\Models;
 use Illuminate\Database\Eloquent\Model;
 use Kalnoy\Nestedset\Node;
 
+/**
+ * Class Comment.
+ */
 class Comment extends Node
 {
     /**
-     * The attributes that aren't mass assignable.
-     *
      * @var array
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Check if a comment has children.
-     *
      * @return bool
      */
     public function hasChildren()
@@ -33,12 +32,11 @@ class Comment extends Node
     }
 
     /**
-     * Create a new comment.
-     *
-     * @param array $data
+     * @param Model $commentable
+     * @param $data
      * @param Model $creator
      *
-     * @return Comment
+     * @return static
      */
     public function createComment(Model $commentable, $data, Model $creator)
     {

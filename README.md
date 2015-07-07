@@ -18,7 +18,7 @@ And then include the service provider within `app/config/app.php`.
 
 ```php
 'providers' => [
-    'DraperStudio\Commentable\CommentableServiceProvider'
+    DraperStudio\Commentable\CommentableServiceProvider::class
 ];
 ```
 
@@ -35,12 +35,13 @@ php artisan vendor:publish && php artisan migrate
 
 namespace App;
 
-use DraperStudio\Commentable\Traits\Commentable;
+use DraperStudio\Commentable\Traits\HasComment;
+use DraperStudio\Commentable\Traits\HasCommentInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Post extends Model implements HasCommentInterface
 {
-    use Commentable;
+    use HasComment;
 }
 
 ```
