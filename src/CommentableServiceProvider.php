@@ -3,7 +3,6 @@
 namespace DraperStudio\Commentable;
 
 use Illuminate\Support\ServiceProvider;
-use Baum\Providers\BaumServiceProvider;
 
 /**
  * Class CommentableServiceProvider.
@@ -25,6 +24,6 @@ class CommentableServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(BaumServiceProvider::class);
+        //
     }
 }
