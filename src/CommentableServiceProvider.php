@@ -14,11 +14,10 @@ class CommentableServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $timestamp = date('Y_m_d_His', time());
-
-        $this->publishes([
-            __DIR__.'/../database/migrations/create_comments_table.php' => database_path('/migrations/'.$timestamp.'_create_comments_table.php'),
-        ], 'migrations');
+        $migrationFrom = __DIR__.'/../database/migrations/create_comments_table.php';
+        $migrationTo = database_path('/migrations/'.date('Y_m_d_His', time()).'_create_comments_table.php');
+        
+        $this->publishes([$migrationFrom => $migrationTo], 'migrations');
     }
 
     /**
