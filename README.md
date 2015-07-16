@@ -55,7 +55,6 @@ $comment = $post->comment([
 dd($comment);
 ```
 
-
 ### Create a comment as a child of another comment (e.g. an answer)
 ```php
 $user = User::first();
@@ -71,11 +70,22 @@ $comment = $post->comment([
 dd($comment);
 ```
 
+### Update a comment
+```php
+$comment = $post->updateComment(1, [
+    'title' => 'new title',
+    'body' => 'new body',
+]);
+```
+
+### Update a comment
+```php
+$post->deleteComment(1);
+```
+
 ### Count comments an entity has
 ```php
 $post = Post::first();
 
 dd($post->getCommentCount());
 ```
-
-

@@ -50,4 +50,28 @@ class Comment extends Node
 
         return $comment;
     }
+
+    /**
+     * @param $id
+     * @param $data
+     *
+     * @return static
+     */
+    public function updateComment($id, $data)
+    {
+        $comment = static::find($id);
+        $comment->update($data);
+
+        return $comment;
+    }
+
+    /**
+     * @param $id
+     *
+     * @return static
+     */
+    public function deleteComment($id)
+    {
+        return static::find($id)->delete();
+    }
 }

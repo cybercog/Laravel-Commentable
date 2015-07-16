@@ -37,6 +37,34 @@ trait HasComment
     }
 
     /**
+     * @param $id
+     * @param $data
+     * @param Model|null $parent
+     *
+     * @return static
+     */
+    public function updateComment($id, $data, Model $parent = null)
+    {
+        $comment = (new Comment())->updateComment($id, $data);
+
+        if (!empty($parent)) {
+            $comment->appendTo($parent)->save();
+        }
+
+        return $comment;
+    }
+
+    /**
+     * @param $id
+     *
+     * @return static
+     */
+    public function deleteComment($id)
+    {
+        return (new Comment())->deleteComment($id);
+    }
+
+    /**
      * @return mixed
      */
     public function getCommentCount()
