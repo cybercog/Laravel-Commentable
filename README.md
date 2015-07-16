@@ -78,7 +78,7 @@ $comment = $post->updateComment(1, [
 ]);
 ```
 
-### Update a comment
+### Delete a comment
 ```php
 $post->deleteComment(1);
 ```
