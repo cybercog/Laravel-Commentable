@@ -32,6 +32,14 @@ class Comment extends Node
     }
 
     /**
+     * @return mixed
+     */
+    public function creator()
+    {
+        return $this->morphTo('creator');
+    }
+
+    /**
      * @param Model $commentable
      * @param $data
      * @param Model $creator
