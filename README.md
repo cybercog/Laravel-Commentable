@@ -14,13 +14,13 @@ And then include the service provider within `app/config/app.php`.
 
 ```php
 'providers' => [
-    DraperStudio\Commentable\CommentableServiceProvider::class
+    DraperStudio\Commentable\ServiceProvider::class
 ];
 ```
 
 At last you need to publish and run the migration.
 ```
-php artisan vendor:publish --provider="DraperStudio\Commentable\CommentableServiceProvider" && php artisan migrate
+php artisan vendor:publish --provider="DraperStudio\Commentable\ServiceProvider" && php artisan migrate
 ```
 
 -----
@@ -31,13 +31,13 @@ php artisan vendor:publish --provider="DraperStudio\Commentable\CommentableServi
 
 namespace App;
 
-use DraperStudio\Commentable\Traits\HasComment;
-use DraperStudio\Commentable\Traits\HasCommentInterface;
+use DraperStudio\Commentable\Contracts\Commentable;
+use DraperStudio\Commentable\Traits\Commentable as CommentableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model implements HasCommentInterface
+class Post extends Model implements Commentable
 {
-    use HasComment;
+    use CommentableTrait;
 }
 
 ```

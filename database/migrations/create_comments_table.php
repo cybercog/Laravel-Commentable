@@ -4,11 +4,11 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Kalnoy\Nestedset\NestedSet;
 
+/**
+ * Class CreateCommentsTable.
+ */
 class CreateCommentsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
@@ -22,12 +22,8 @@ class CreateCommentsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down()
     {
-        Schema::drop('comments');
-        NestedSet::dropColumns('comments');
+        Schema::dropIfExists('comments');
     }
 }

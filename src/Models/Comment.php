@@ -24,7 +24,7 @@ class Comment extends Node
     }
 
     /**
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function commentable()
     {
@@ -32,7 +32,7 @@ class Comment extends Node
     }
 
     /**
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function creator()
     {
@@ -63,7 +63,7 @@ class Comment extends Node
      * @param $id
      * @param $data
      *
-     * @return static
+     * @return mixed
      */
     public function updateComment($id, $data)
     {
@@ -76,7 +76,7 @@ class Comment extends Node
     /**
      * @param $id
      *
-     * @return static
+     * @return mixed
      */
     public function deleteComment($id)
     {

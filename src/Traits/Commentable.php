@@ -6,12 +6,12 @@ use DraperStudio\Commentable\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class HasComment.
+ * Class Commentable.
  */
-trait HasComment
+trait Commentable
 {
     /**
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function comments()
     {
@@ -41,7 +41,7 @@ trait HasComment
      * @param $data
      * @param Model|null $parent
      *
-     * @return static
+     * @return mixed
      */
     public function updateComment($id, $data, Model $parent = null)
     {
@@ -57,7 +57,7 @@ trait HasComment
     /**
      * @param $id
      *
-     * @return static
+     * @return mixed
      */
     public function deleteComment($id)
     {
@@ -67,7 +67,7 @@ trait HasComment
     /**
      * @return mixed
      */
-    public function getCommentCount()
+    public function commentCount()
     {
         return $this->comments->count();
     }
