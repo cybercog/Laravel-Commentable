@@ -5,9 +5,7 @@
 First, pull in the package through Composer.
 
 ```js
-"require": {
-    "draperstudio/laravel-commentable": "~1.0"
-}
+composer require draperstudio/laravel-commentable
 ```
 
 And then include the service provider within `app/config/app.php`.
