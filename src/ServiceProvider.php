@@ -14,7 +14,9 @@ class ServiceProvider extends IlluminateProvider
         $migrationFrom = __DIR__.'/../database/migrations/create_comments_table.php';
         $migrationTo = database_path('/migrations/'.date('Y_m_d_His', time()).'_create_comments_table.php');
 
-        $this->publishes([$migrationFrom => $migrationTo], 'migrations');
+        if (!class_exists('CreateCommentsTable')) {
+            $this->publishes([$migrationFrom => $migrationTo], 'migrations');
+        }
     }
 
     public function register()
